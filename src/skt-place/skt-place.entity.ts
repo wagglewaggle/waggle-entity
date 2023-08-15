@@ -3,6 +3,7 @@ import { Category } from '../category/category.entity';
 import { Location } from '../location/location.entity';
 import { Province } from '../province/province.entity';
 import { SktPopulation } from '../skt-population/skt-population.entity';
+import { SktPlaceStatus } from './skt-place.constant';
 
 @Entity()
 export class SktPlace {
@@ -23,6 +24,9 @@ export class SktPlace {
 
   @Column('varchar')
   address: string;
+
+  @Column('enum', { enum: SktPlaceStatus })
+  status: SktPlaceStatus;
 
   @ManyToOne(() => Province, (province) => province.sktPlaces)
   province: Province;

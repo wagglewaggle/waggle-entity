@@ -6,6 +6,7 @@ import { KtPopulation } from '../kt-population/kt-population.entity';
 import { KtRoadTraffic } from '../kt-road-traffic/kt-road-traffic.entity';
 import { Location } from '../location/location.entity';
 import { Province } from '../province/province.entity';
+import { KtPlaceStatus } from './kt-place.constant';
 
 @Entity()
 export class KtPlace {
@@ -23,6 +24,9 @@ export class KtPlace {
 
   @Column('varchar')
   address: string;
+
+  @Column('enum', { enum: KtPlaceStatus })
+  status: KtPlaceStatus;
 
   @ManyToOne(() => Province, (province) => province.ktPlaces)
   province: Province;
