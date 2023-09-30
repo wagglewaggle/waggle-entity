@@ -1,6 +1,6 @@
 {
   "name": "waggle-entity",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "WaggleWaggle Entity",
   "author": "park918823",
   "main": "dist/index.js",
