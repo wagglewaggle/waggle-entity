@@ -1,5 +1,6 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { KtPlace } from '../kt-place/kt-place.entity';
+import { SktPlace } from '../skt-place/skt-place.entity';
 
 @Entity()
 export class Cctv {
@@ -12,6 +13,9 @@ export class Cctv {
   @Column('varchar')
   cctvname: string;
 
-  @ManyToOne(() => KtPlace, (ktPlace) => ktPlace)
-  place: KtPlace;
+  @ManyToOne(() => KtPlace, (ktPlace) => ktPlace.cctvs)
+  ktPlace: KtPlace;
+
+  @ManyToOne(() => SktPlace, (sktPlace) => sktPlace.cctvs)
+  sktPlace: SktPlace;
 }

@@ -48,6 +48,6 @@ export class KtPlace {
   @OneToMany(() => KtAccident, (accident) => accident.place)
   accidents: KtAccident[];
 
-  @OneToMany(() => Cctv, (cctv) => cctv.place)
+  @OneToMany(() => Cctv, (cctv) => cctv.ktPlace)
   cctvs: Cctv[];
 }
