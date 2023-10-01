@@ -4,6 +4,7 @@ import { Location } from '../location/location.entity';
 import { Province } from '../province/province.entity';
 import { SktPopulation } from '../skt-population/skt-population.entity';
 import { SktPlaceStatus } from './skt-place.constant';
+import { Cctv } from '../cctv/cctv.entity';
 
 @Entity()
 export class SktPlace {
@@ -38,6 +39,9 @@ export class SktPlace {
 
   @OneToMany(() => Category, (category) => category.sktPlace)
   categories: Category[];
+
+  @OneToMany(() => Cctv, (cctv) => cctv.sktPlace)
+  cctvs: Cctv[];
 
   @OneToOne(() => SktPopulation, (sktPopulation) => sktPopulation.place)
   population: SktPopulation;

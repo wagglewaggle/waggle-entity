@@ -102,6 +102,33 @@ export class NewPlaceList1696069375016 implements MigrationInterface {
     await queryRunner.query(
       `insert into kt_place (idx, name, provinceIdx, x, y, locationIdx, address, status) values (78, '동대문역', 1, 37.5716685, 127.0107255, 4, '서울 종로구 종로 지하 302', 'ACTIVATED')`,
     );
+    /**
+     * extra place
+     */
+    await queryRunner.query(
+      `INSERT INTO kt_place (idx, name, x, y, address, status, locationIdx, provinceIdx) VALUES (79, '63빌딩', 37.52025617, 126.939837, '서울 영등포구 63로 50', 'ACTIVATED', 2, 1)`,
+    );
+    await queryRunner.query(
+      `INSERT INTO kt_place (idx, name, x, y, address, status, locationIdx, provinceIdx) VALUES (80, '선유도공원', 37.54390734, 126.8998627, '서울 영등포구 선유로 343', 'ACTIVATED', 2, 1)`,
+    );
+    await queryRunner.query(
+      `INSERT INTO kt_place (idx, name, x, y, address, status, locationIdx, provinceIdx) VALUES (81, '마포대교', 37.53325557, 126.9359233, '서울 영등포구 여의도동 85-2', 'ACTIVATED', 2, 1)`,
+    );
+    await queryRunner.query(
+      `INSERT INTO kt_place (idx, name, x, y, address, status, locationIdx, provinceIdx) VALUES (82, '원효대교', 37.52576293, 126.9431473, '서울 영등포구 여의도동 87-2', 'ACTIVATED', 2, 1)`,
+    );
+    await queryRunner.query(
+      `INSERT INTO kt_place (idx, name, x, y, address, status, locationIdx, provinceIdx) VALUES (83, '한강대교', 37.51794885, 126.9591479, '서울 용산구 이촌동 303-18', 'ACTIVATED', 9, 1)`,
+    );
+    await queryRunner.query(
+      `INSERT INTO kt_place (idx, name, x, y, address, status, locationIdx, provinceIdx) VALUES (84, '서강대교', 37.53815106, 126.9257585, '서울 영등포구 여의도동 83-2', 'ACTIVATED', 2, 1)`,
+    );
+    await queryRunner.query(
+      `INSERT INTO kt_place (idx, name, x, y, address, status, locationIdx, provinceIdx) VALUES (85, '사육신 역사공원', 37.51405671, 126.9481783, '서울 동작구 노량진로 191', 'ACTIVATED', 15, 1)`,
+    );
+    await queryRunner.query(
+      `INSERT INTO kt_place (idx, name, x, y, address, status, locationIdx, provinceIdx) VALUES (86, '중앙대·흑석역', 37.50653306, 126.9589505, '서울 동작구 흑석로 84', 'ACTIVATED', 15, 1)`,
+    );
 
     /**
      * 새로운 카테고리 추가
@@ -148,6 +175,17 @@ export class NewPlaceList1696069375016 implements MigrationInterface {
     await queryRunner.query(`insert into category (ktPlaceIdx, sktPlaceIdx, typeIdx) values (76, null, 6)`);
     await queryRunner.query(`insert into category (ktPlaceIdx, sktPlaceIdx, typeIdx) values (77, null, 5)`);
     await queryRunner.query(`insert into category (ktPlaceIdx, sktPlaceIdx, typeIdx) values (78, null, 6)`);
+    /**
+     * extra place
+     */
+    await queryRunner.query(`INSERT INTO category (typeIdx, ktPlaceIdx) VALUES (9, 79)`);
+    await queryRunner.query(`INSERT INTO category (typeIdx, ktPlaceIdx) VALUES (9, 80)`);
+    await queryRunner.query(`INSERT INTO category (typeIdx, ktPlaceIdx) VALUES (9, 81)`);
+    await queryRunner.query(`INSERT INTO category (typeIdx, ktPlaceIdx) VALUES (9, 82)`);
+    await queryRunner.query(`INSERT INTO category (typeIdx, ktPlaceIdx) VALUES (9, 83)`);
+    await queryRunner.query(`INSERT INTO category (typeIdx, ktPlaceIdx) VALUES (9, 84)`);
+    await queryRunner.query(`INSERT INTO category (typeIdx, ktPlaceIdx) VALUES (9, 85)`);
+    await queryRunner.query(`INSERT INTO category (typeIdx, ktPlaceIdx) VALUES (9, 86)`);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {}
